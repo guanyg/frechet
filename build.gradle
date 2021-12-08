@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'me.yung'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'me.yung.frechet.Main'
+}
+
+dependencies {
+    implementation 'org.iq80.leveldb:leveldb:0.12'
+    implementation fileTree('libs') { include '*.jar' }
+    implementation('com.google.guava:guava:31.0.1-jre')
+    implementation 'com.conversantmedia:rtree:1.0.5'
+//    implementation 'me.tongfei:progressbar:0.8.1'
+    implementation 'info.picocli:picocli:4.6.2'
+    implementation group: 'org.apache.commons', name: 'commons-compress', version: '1.14'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
